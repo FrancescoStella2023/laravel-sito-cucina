@@ -61,7 +61,7 @@ class RecipeController extends Controller
      */
     public function edit(Recipe $recipe)
     {
-        //
+        return view("recipes.edit", compact("recipe"));
     }
 
     /**
@@ -69,7 +69,20 @@ class RecipeController extends Controller
      */
     public function update(Request $request, Recipe $recipe)
     {
-        //
+        $data = $request->all();
+
+        $recipe->title = $data['title'];
+        $recipe->title = $data['description'];
+
+        if (array_key_exists("image", $data)) {
+            Storage::delete($recipe->image);
+            $img_url = Storage::putFile('recipes', $data['image']);
+            $recipe->image = $img_url;
+        }
+
+        $recipe->save();
+
+        return redirect()->route('recipes.show', $recipe);
     }
 
     /**
@@ -77,6 +90,9 @@ class RecipeController extends Controller
      */
     public function destroy(Recipe $recipe)
     {
-        //
+        Storage::delete($recipe->image);
+        $recipe->delete();
+
+        return redirect()->route('recipes.index');
     }
 }

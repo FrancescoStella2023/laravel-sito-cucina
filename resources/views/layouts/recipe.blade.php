@@ -20,7 +20,7 @@
         @yield("content")
     </div>
     <footer class="d-flex justify-content-center flex-grow-1 bg-dark text-white pt-2">
-        <p>2026 - Cucina</p>
+        <p>2026 - Backend ricettario</p>
     </footer>
 </body>
 
