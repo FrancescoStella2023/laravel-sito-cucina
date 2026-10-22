@@ -19,7 +19,7 @@
                     <td class="py-3">{{ $recipe->title }}</td>
                     <td class="py-3">{{ $recipe->description }}</td>
                     <td class="py-3">
-                        <a href="" class="btn btn-outline-primary display-on-line">
+                        <a href="{{ route('recipes.show', $recipe->id) }}" class="btn btn-outline-primary display-on-line">
                             Dettagli
                         </a>
                     </td>

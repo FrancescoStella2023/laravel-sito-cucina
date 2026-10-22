@@ -36,9 +36,9 @@ class RecipeController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Recipe $recipe)
     {
-        //
+        return view("recipes.show", compact("recipe"));
     }
 
     /**
