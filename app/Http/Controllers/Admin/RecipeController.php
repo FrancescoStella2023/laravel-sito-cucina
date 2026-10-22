@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Recipe;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class RecipeController extends Controller
 {
@@ -22,7 +23,7 @@ class RecipeController extends Controller
      */
     public function create()
     {
-        //
+        return view("recipes.create");
     }
 
     /**
@@ -30,7 +31,21 @@ class RecipeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $new_recipe = new Recipe();
+
+        $new_recipe->title = $data['title'];
+        $new_recipe->description = $data['description'];
+
+        if (array_key_exists("image", $data)) {
+            $img_url = Storage::putFile('recipes', $data['image']);
+            $new_recipe->image = $img_url;
+        }
+
+        $new_recipe->save();
+
+        return redirect()->route('recipes.show', $new_recipe);
     }
 
     /**
@@ -44,7 +59,7 @@ class RecipeController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Recipe $recipe)
     {
         //
     }
@@ -52,7 +67,7 @@ class RecipeController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Recipe $recipe)
     {
         //
     }
@@ -60,7 +75,7 @@ class RecipeController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Recipe $recipe)
     {
         //
     }

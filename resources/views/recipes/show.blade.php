@@ -9,6 +9,7 @@
         <p>{{ $recipe->description }}</p>
     </div>
 
+    <img src="{{ asset('storage/' . $recipe->image) }}" alt="{{  $recipe->image}}">
 
     <div class="container-fluid d-flex justify-content-center">
         <a href="{{ route('recipes.index') }}" class="btn btn-outline-primary">
