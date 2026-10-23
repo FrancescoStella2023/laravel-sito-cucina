@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AuthorController;
 use App\Http\Controllers\Admin\RecipeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -20,5 +21,6 @@ Route::middleware('auth')->group(function () {
 
 
 Route::resource("recipes", RecipeController::class);
+Route::resource("authors", AuthorController::class);
 
 require __DIR__ . '/auth.php';

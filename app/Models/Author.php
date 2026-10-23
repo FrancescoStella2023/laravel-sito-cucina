@@ -8,6 +8,6 @@ class Author extends Model
 {
     public function recipes()
     {
-        $this->hasMany(Recipe::class);
+        return $this->hasMany(Recipe::class);
     }
 }
