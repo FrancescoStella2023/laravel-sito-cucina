@@ -18,6 +18,7 @@
             <h4 class="fw-bold mb-3">{{ $recipe->title }}</h4>
             <img class="img-fluid w-25 rounded" src="{{ asset('storage/' . $recipe->image) }}" alt="{{ $recipe->image }}">
         </div>
+        <small class="mb-2">{{ $recipe->author->name }}</small>
         <p>{{ $recipe->description }}</p>
     </div>
 

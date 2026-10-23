@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Author;
 use App\Models\Recipe;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -23,7 +24,8 @@ class RecipeController extends Controller
      */
     public function create()
     {
-        return view("recipes.create");
+        $authors = Author::all();
+        return view("recipes.create", compact('authors'));
     }
 
     /**
@@ -37,6 +39,7 @@ class RecipeController extends Controller
 
         $new_recipe->title = $data['title'];
         $new_recipe->description = $data['description'];
+        $new_recipe->author_id = $data['author'];
 
         if (array_key_exists("image", $data)) {
             $img_url = Storage::putFile('recipes', $data['image']);
@@ -61,7 +64,8 @@ class RecipeController extends Controller
      */
     public function edit(Recipe $recipe)
     {
-        return view("recipes.edit", compact("recipe"));
+        $authors = Author::all();
+        return view("recipes.edit", compact('recipe', 'authors'));
     }
 
     /**
@@ -73,6 +77,7 @@ class RecipeController extends Controller
 
         $recipe->title = $data['title'];
         $recipe->description = $data['description'];
+        $recipe->author_id = $data['author'];
 
         if (array_key_exists("image", $data)) {
             Storage::delete($recipe->image);

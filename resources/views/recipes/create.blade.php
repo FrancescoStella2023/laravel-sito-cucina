@@ -15,6 +15,16 @@
             <label class="form-label fw-bold" for="description">Descrizione</label>
             <textarea class="form-control" id="description" name="description" rows="4"></textarea>
         </div>
+
+        <div class="form-control mb-3">
+            <label class="form-label fw-bold" for="author">Autore</label>
+            <select class="form-select" name="author" id="author">
+                @foreach ($authors as $author)
+                    <option value="{{ $author->id }}">{{ $author->name }}</option>
+                @endforeach
+            </select>
+        </div>
+
         <div class="form-control mb-3 d-flex flex-wrap">
             <label class="form-label fw-bold" for="image">Immagine</label>
             <input class="form-control" type="file" name="image" id="image">
