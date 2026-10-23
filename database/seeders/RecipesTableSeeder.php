@@ -23,6 +23,7 @@ class RecipesTableSeeder extends Seeder
 
             $new_recipe->title = $faker->word();
             $new_recipe->description = $faker->paragraph(3);
+            $new_recipe->author_id = $faker->numberBetween(1, 4);
             $new_recipe->save();
         }
     }

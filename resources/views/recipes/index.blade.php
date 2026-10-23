@@ -13,6 +13,7 @@
             <tr>
                 <th class="py-3">Titolo</th>
                 <th class="py-3">Descrizione</th>
+                <th class="py-3">Autore</th>
                 <th class="py-3"></th>
                 <th class="py-3"></th>
             </tr>
@@ -22,6 +23,7 @@
                 <tr>
                     <td class="py-3">{{ $recipe->title }}</td>
                     <td class="py-3">{{ $recipe->description }}</td>
+                    <td class="py-3">{{ $recipe->author->name }}</td>
                     <td class="py-3">
                         <a href="{{ route('recipes.show', $recipe->id) }}" class="btn btn-outline-primary display-on-line">
                             Dettagli
