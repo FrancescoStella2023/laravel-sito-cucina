@@ -72,7 +72,7 @@ class RecipeController extends Controller
         $data = $request->all();
 
         $recipe->title = $data['title'];
-        $recipe->title = $data['description'];
+        $recipe->description = $data['description'];
 
         if (array_key_exists("image", $data)) {
             Storage::delete($recipe->image);

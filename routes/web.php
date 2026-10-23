@@ -6,11 +6,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('adminDashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
@@ -20,7 +16,7 @@ Route::middleware('auth')->group(function () {
 });
 
 
-Route::resource("recipes", RecipeController::class);
-Route::resource("authors", AuthorController::class);
+Route::resource("recipes", RecipeController::class)->middleware(['auth', 'verified']);
+Route::resource("authors", AuthorController::class)->middleware(['auth', 'verified']);
 
 require __DIR__ . '/auth.php';

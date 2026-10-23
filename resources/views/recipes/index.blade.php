@@ -4,8 +4,13 @@
 
 @section("content")
 
-    <div class="container-fluid d-flex justify-content-center my-4">
-        <a href="{{ route("recipes.create") }}" class="btn btn-outline-success btn-lg">Aggiungi ricetta</a>
+    <div class="container-fluid d-flex justify-content-center my-4 gap-5">
+        <a class="btn btn-outline-primary btn-lg" href="{{ url('/') }}">
+            Home
+        </a>
+        <a class="btn btn-outline-success btn-lg" href="{{ route("recipes.create") }}">
+            Aggiungi ricetta
+        </a>
     </div>
 
     <table class="table table-hover align-middle my-4">
