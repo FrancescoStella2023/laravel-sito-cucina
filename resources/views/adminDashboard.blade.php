@@ -1,18 +1,19 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    <div class="container mt-5">
         <h2 class="fs-4 text-primary my-4">
             <p class="fw-bold">
                 Dashboard
             </p>
         </h2>
+        <hr>
         <div class="row justify-content-center">
             <div class="col">
                 <div class="card">
-                    <div class="card-header">
-                        <p class="fw-bold">
-                            User Dashboard
+                    <div class="card-header bg-dark">
+                        <p class="fw-bold text-white">
+                            User
                         </p>
                     </div>
 
@@ -36,8 +37,8 @@
                     </div>
                 </div>
                 <div class="card my-4">
-                    <div class="card-header">
-                        <p class="fw-bold">Visualizza Dati</p>
+                    <div class="card-header bg-dark">
+                        <p class="fw-bold text-white">Visualizza Dati</p>
                     </div>
                     <div class="card-body">
                         <a class="btn btn-outline-primary btn-lg" href="{{ route('recipes.index') }}">Ricette</a>
