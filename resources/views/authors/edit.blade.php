@@ -1,6 +1,6 @@
 @extends("layouts.recipe")
 
-@section("title", "Modifica ricetta")
+@section("title", "Modifica autore")
 
 @section("content")
     <form action="{{ route("authors.update", $author) }}" method="POST" class="m-2">

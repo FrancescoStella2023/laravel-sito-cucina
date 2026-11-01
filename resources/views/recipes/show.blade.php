@@ -19,7 +19,7 @@
             <img class="img-fluid w-25 rounded" src="{{ asset('storage/' . $recipe->image) }}" alt="{{ $recipe->image }}">
         </div>
         <small class="mb-2">{{ $recipe->author->name }}</small>
-        <p>{{ $recipe->description }}</p>
+        <p style="white-space: pre-line;">{{ $recipe->description }}</p>
     </div>
 
 
